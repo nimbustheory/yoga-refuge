@@ -193,7 +193,7 @@ function PageHero({ title, subtitle, img, gradient, tall }) {
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 50%, rgba(0,0,0,0.35) 100%)" }} />
       <div style={{ position: "relative", zIndex: 1, color: "#fff" }}>
         <h1 style={{ fontFamily: DF, fontSize: headlineSize, margin: "0 0 8px", lineHeight: 0.95, fontWeight: 700, letterSpacing: "-0.02em", textShadow: "0 2px 12px rgba(0,0,0,0.35)" }}>{title}</h1>
-        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.92)", margin: 0, lineHeight: 1.45, maxWidth: "85%", textShadow: "0 1px 6px rgba(0,0,0,0.35)" }}>{subtitle}</p>}
+        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.92)", margin: 0, lineHeight: 1.45, maxWidth: "100%", textShadow: "0 1px 6px rgba(0,0,0,0.35)" }}>{subtitle}</p>}
       </div>
     </div>
   );
