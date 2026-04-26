@@ -73,7 +73,7 @@ export default function DemoWrapper() {
           }}>
             <div style={{ width: 120, height: 6, background: "#2a2a34", borderRadius: 3, margin: "0 auto 8px" }} />
             <div style={{
-              width: 390, height: 720, borderRadius: 32, overflow: "hidden", background: "#fff",
+              width: 390, height: 720, borderRadius: 40, overflow: "hidden", background: "#fff",
               position: "relative"
             }}>
               <App onEnterAdmin={() => setIsFullAdmin(true)} />

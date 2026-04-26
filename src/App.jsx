@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, createContext, useContext, useRef } from "react";
 import {
-  Home, Calendar, TrendingUp, Users, CreditCard, CalendarDays,
+  Home, Calendar, TrendingUp, Users, CreditCard, CalendarDays, AlignJustify,
   Menu, X, Bell, Settings, Shield, ChevronRight, ChevronDown, Clock,
   PartyPopper, ArrowUpRight, Award, DollarSign, LayoutDashboard,
   UserCheck, Megaphone, LogOut, Plus, Edit3, Send, Check, Search,
@@ -17,7 +17,7 @@ const SC = {
   subtitle: "REFUGE",
   tagline: "Find your refuge.",
   logoMark: "Y",
-  description: "A welcoming Portland studio. Two homes -- the Montavilla loft and the historic NW chapel.",
+  description: "A welcoming Portland community with two homes: the Montavilla loft and historic NW chapel.",
   heroLine1: "YOGA",
   heroLine2: "REFUGE",
   address: { street: "7831 SE Stark St, Ste 300", city: "Portland", state: "OR", zip: "97215" },
@@ -43,13 +43,13 @@ const SC = {
 
 const IMG = {
   home: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/ecce67fd-681f-4ea5-903e-cd0fffabb3c6/YR_main_01a.jpg?format=1500w",
-  classes: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/2540bc92-a715-491e-92a0-a39cd62f9531/Main_Page_Images_2025_Classes.jpg?format=1500w",
-  schedule: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/12094f0a-91b3-4b7a-b5b6-eedcd96031ef/Main_Page_Images_2025_NewStudents.jpg?format=1500w",
-  practice: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/d4880d0b-aa65-410f-9344-da2615b7fbb1/Main_Page_Images_2025_Private.jpg?format=1500w",
-  community: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/a8c26455-416b-4627-8c3a-cda5900a8653/YR_Workshops.jpg?format=1500w",
+  classes: "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=1500&auto=format&fit=crop",
+  schedule: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=1500&auto=format&fit=crop",
+  practice: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1500&auto=format&fit=crop",
+  community: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=1500&auto=format&fit=crop",
   teachers: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/296d91a0-bfd9-4be4-8c7a-ef4c5f2424ce/YR_About.jpg?format=1500w",
-  events: null,
-  membership: null,
+  events: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/501eab91-9b09-41c6-9112-94dedf512e76/SUNSET_YOGA.webp?format=1500w",
+  membership: "https://images.squarespace-cdn.com/content/v1/619a8b644bcdab2f25b15650/c264515e-53c6-464b-b4b4-dd6f66a1c7e9/TERRACE.webp?format=1500w",
 };
 
 const hsl = (c, a) => a !== undefined ? `hsla(${c.h},${c.s}%,${c.l}%,${a})` : `hsl(${c.h},${c.s}%,${c.l}%)`;
@@ -193,7 +193,7 @@ function PageHero({ title, subtitle, img, gradient, tall }) {
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.04) 50%, rgba(0,0,0,0.35) 100%)" }} />
       <div style={{ position: "relative", zIndex: 1, color: "#fff" }}>
         <h1 style={{ fontFamily: DF, fontSize: headlineSize, margin: "0 0 8px", lineHeight: 0.95, fontWeight: 700, letterSpacing: "-0.02em", textShadow: "0 2px 12px rgba(0,0,0,0.35)" }}>{title}</h1>
-        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.92)", margin: 0, lineHeight: 1.45, maxWidth: "100%", textShadow: "0 1px 6px rgba(0,0,0,0.35)" }}>{subtitle}</p>}
+        {subtitle && <p style={{ fontSize: 14, color: "rgba(255,255,255,0.92)", margin: 0, lineHeight: 1.45, maxWidth: "90%", textShadow: "0 1px 6px rgba(0,0,0,0.35)" }}>{subtitle}</p>}
       </div>
     </div>
   );
@@ -444,18 +444,16 @@ export default function App({ onEnterAdmin, startInAdmin = false, onExitAdmin })
 
   const mainTabs = [
     { id: "home", label: "Home", icon: Home },
-    { id: "schedule", label: "Schedule", icon: CalendarDays },
+    { id: "schedule", label: "Schedule", icon: Calendar },
     { id: "practice", label: "Practice", icon: TrendingUp },
     { id: "community", label: "Community", icon: Heart },
     { id: "more", label: "More", icon: Menu },
   ];
   const moreItems = [
-    { id: "classes", label: "Classes", icon: Calendar },
+    { id: "classes", label: "Classes", icon: AlignJustify },
     { id: "teachers", label: "Teachers", icon: Users },
-    { id: "membership", label: "Pricing", icon: CreditCard },
-    { id: "events", label: "Events", icon: PartyPopper },
-    { id: "rewards", label: "Refuge Points", icon: Gift },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "membership", label: "Membership", icon: CreditCard },
+    { id: "events", label: "Events", icon: CalendarDays },
   ];
   const adminTabs = [
     { id: "admin-dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -529,7 +527,7 @@ export default function App({ onEnterAdmin, startInAdmin = false, onExitAdmin })
         </div>
       </header>
       <main ref={contentRef} style={{ position: "absolute", top: 58, left: 0, right: 0, bottom: 60, overflowY: "auto", scrollbarWidth: "none", msOverflowStyle: "none" }} className="yr-scroll">{renderPage()}</main>
-      {showMore && (<div onClick={() => setShowMore(false)} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 50 }}><div onClick={e => e.stopPropagation()} style={{ position: "absolute", bottom: 68, left: 16, right: 16, background: T.bgCard, borderRadius: 16, padding: "14px 12px", boxShadow: "0 8px 32px rgba(0,0,0,.15)" }}><div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 6px 8px" }}><span style={{ fontFamily: DF, fontSize: 20, fontWeight: 600 }}>More</span><button onClick={() => setShowMore(false)} style={{ padding: 4, borderRadius: 6, border: "none", background: "transparent", cursor: "pointer" }}><X size={18} color={T.textMuted} /></button></div><div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>{moreItems.map(item => { const active = page === item.id; const isSettings = item.id === "settings"; return <button key={item.id} onClick={() => { if (isSettings) { setShowSettings(true); setShowMore(false); return; } setPage(item.id); setShowMore(false); }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: "14px 8px", borderRadius: 10, border: "none", cursor: "pointer", background: active ? T.accentGhost : T.bgDim, color: active ? T.accent : T.textMuted }}><item.icon size={22} /><span style={{ fontSize: 13, fontWeight: 600 }}>{item.label}</span></button>; })}</div></div></div>)}
+      {showMore && (<div onClick={() => setShowMore(false)} style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,.5)", backdropFilter: "blur(4px)", zIndex: 50 }}><div onClick={e => e.stopPropagation()} style={{ position: "absolute", bottom: 68, left: 16, right: 16, background: T.bgCard, borderRadius: 16, padding: "14px 12px", boxShadow: "0 8px 32px rgba(0,0,0,.15)" }}><div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 6px 8px" }}><span style={{ fontFamily: DF, fontSize: 20, fontWeight: 600 }}>More</span><button onClick={() => setShowMore(false)} style={{ padding: 4, borderRadius: 6, border: "none", background: "transparent", cursor: "pointer" }}><X size={18} color={T.textMuted} /></button></div><div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>{moreItems.map(item => { const active = page === item.id; return <button key={item.id} onClick={() => { setPage(item.id); setShowMore(false); }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: "14px 8px", borderRadius: 10, border: "none", cursor: "pointer", background: active ? T.accentGhost : T.bgDim, color: active ? T.accent : T.textMuted }}><item.icon size={22} /><span style={{ fontSize: 13, fontWeight: 600 }}>{item.label}</span></button>; })}</div></div></div>)}
       <nav style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 60, zIndex: 40, background: "#ffffff", borderTop: "1px solid #eeeeee", display: "flex", alignItems: "center", justifyContent: "space-around" }}>
         {mainTabs.map(tab => { const active = tab.id === "more" ? (isMoreActive || showMore) : page === tab.id; return <button key={tab.id} onClick={tab.id === "more" ? () => setShowMore(true) : () => setPage(tab.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, padding: "4px 6px", borderRadius: 10, border: "none", background: "transparent", cursor: "pointer", color: active ? T.accent : T.textFaint }}><tab.icon size={20} strokeWidth={active ? 2.5 : 2} /><span style={{ fontSize: 10, fontWeight: active ? 700 : 500 }}>{tab.label}</span></button>; })}
       </nav>
